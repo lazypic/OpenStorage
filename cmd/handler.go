@@ -17,6 +17,9 @@ var handlers = map[string]map[string]HandlerFunc{
     "zfs": {
         "list": ZfsList,
     },
+    "df": {
+        "list": DfList,
+    },
 }
 
 func Dispatch(w http.ResponseWriter, r *http.Request) {
