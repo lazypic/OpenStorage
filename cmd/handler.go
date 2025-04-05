@@ -1,6 +1,7 @@
 package cmd
 
 import (
+    "fmt"
     "net/http"
     "strings"
 
@@ -17,8 +18,8 @@ var handlers = map[string]map[string]HandlerFunc{
     "zfs": {
         "list": ZfsList,
     },
-    "df": {
-        "list": DfList,
+    "git": {
+        "version": GitVersion,
     },
 }
 
@@ -26,6 +27,7 @@ func Dispatch(w http.ResponseWriter, r *http.Request) {
     vars := mux.Vars(r)
     cmd := vars["cmd"]
     subcmd := vars["subcmd"]
+    fmt.Println(subcmd)
     args := strings.Fields(r.URL.Query().Get("args"))
     allArgs := append([]string{subcmd}, args...)
 

@@ -7,13 +7,13 @@ import (
     "github.com/lazypic/OpenStorage/util"
 )
 
-func DfList(w http.ResponseWriter, r *http.Request, args []string) {
+func GitVersion(w http.ResponseWriter, r *http.Request, args []string) {
     fmt.Println(args)
-    out, err := util.RunCommand("df", args)
+    out, err := util.RunCommand("git", args)
     if err != nil {
         util.RespondError(w, err, out)
         return
     }
-    data := parser.ParseDfList(out)
+    data := parser.ParseGitVersion(out)
     util.RespondJSON(w, data)
 }
