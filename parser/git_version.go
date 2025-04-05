@@ -1,7 +1,6 @@
 package parser
 
 import "strings"
-import "fmt"
 
 func ParseGitVersion(output string) []map[string]string {
     lines := strings.Split(output, "\n")
