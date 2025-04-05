@@ -5,7 +5,7 @@ import (
     "strings"
 
     "github.com/gorilla/mux"
-    "github.com/OpenStorage/cmd/internal"
+    "github.com/lazypic/OpenStorage/cmd/internal"
 )
 
 type HandlerFunc func(http.ResponseWriter, *http.Request, []string)
