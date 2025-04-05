@@ -2,8 +2,8 @@ package cmd
 
 import (
     "net/http"
-    "zfs-monitor/parser"
-    "zfs-monitor/util"
+    "github.com/lazypic/OpenStorage/parser"
+    "github.com/lazypic/OpenStorage/util"
 )
 
 func ZpoolList(w http.ResponseWriter, r *http.Request, args []string) {
