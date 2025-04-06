@@ -57,6 +57,6 @@ func zpoolStatusHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", zpoolStatusHandler)
-	fmt.Println("Listening on :8080")
-	http.ListenAndServe(":8080", nil)
+	fmt.Println("Listening on :9090")
+	http.ListenAndServe(":9090", nil)
 }
