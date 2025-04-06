@@ -7,6 +7,53 @@
 
 기본적으로 9090을 사용한다.
 
+## FreeBSD 서비스 설치
+
+1. 설치 스크립트 실행:
+```bash
+sudo ./install.sh
+```
+
+설치 스크립트는 다음 작업을 수행합니다:
+- Go 프로그램 빌드
+- 바이너리를 `/usr/local/bin`에 설치
+- rc.d 스크립트를 `/usr/local/etc/rc.d`에 설치
+- 서비스 활성화 및 시작
+
+## 서비스 관리
+
+서비스 관리 명령어:
+```bash
+# 서비스 시작
+sudo service openstorage start
+
+# 서비스 중지
+sudo service openstorage stop
+
+# 서비스 재시작
+sudo service openstorage restart
+
+# 서비스 상태 확인
+sudo service openstorage status
+```
+
+## 포트 변경
+
+서비스의 포트를 변경하려면 `/usr/local/etc/rc.d/openstorage` 파일을 수정하세요:
+```bash
+sudo vi /usr/local/etc/rc.d/openstorage
+```
+
+`command_args` 값을 원하는 포트로 변경:
+```bash
+command_args="-port 8080"  # 원하는 포트로 변경
+```
+
+변경 후 서비스를 재시작:
+```bash
+sudo service openstorage restart
+```
+
 ## 명령어 및 서비스
 
 ```bash
