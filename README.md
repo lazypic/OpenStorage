@@ -12,3 +12,9 @@
 ```bash
 curl "http://localhost:9090"
 ```
+
+## 상태 가지고오기
+
+```bash
+echo -n "Storage Status: " && curl -s http://localhost:9090 | jq -r '.errors'
+```
