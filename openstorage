@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# PROVIDE: openstorage
+# REQUIRE: NETWORKING
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="openstorage"
+rcvar="${name}_enable"
+command="/usr/local/bin/openstorage"
+pidfile="/var/run/${name}.pid"
+command_args="-port 9090"
+
+load_rc_config $name
+run_rc_command "$1" 
