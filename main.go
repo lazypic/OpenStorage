@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"net/http"
 	"os/exec"
@@ -78,7 +79,11 @@ func zpoolStatusHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	port := flag.Int("port", 9090, "서버 포트 번호")
+	flag.Parse()
+
 	http.HandleFunc("/", zpoolStatusHandler)
-	fmt.Println("Listening on :9090")
-	http.ListenAndServe(":9090", nil)
+	addr := fmt.Sprintf(":%d", *port)
+	fmt.Printf("Listening on %s\n", addr)
+	http.ListenAndServe(addr, nil)
 }
