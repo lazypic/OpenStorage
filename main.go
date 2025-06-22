@@ -68,5 +68,8 @@ func main() {
 	http.HandleFunc("/", zpoolStatusHandler)
 	addr := fmt.Sprintf(":%d", *port)
 	fmt.Printf("Listening on %s\n", addr)
-	http.ListenAndServe(addr, nil)
+	err := http.ListenAndServe(addr, nil)
+    if err != nil {
+		fmt.Printf("%v\n", err)
+	}
 }
